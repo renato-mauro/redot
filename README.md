@@ -1,1 +1,1 @@
-# redot
+# REDOT - REactive Document Templates
