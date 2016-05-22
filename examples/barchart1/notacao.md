@@ -35,8 +35,9 @@ tag("div")
 tag("div") 
 (
     tag("button", {onclick:"{data.ordenaAsc()}"}, "Crescente"),
-    tag("button", {onclick:"{data.ordenaAsc()}"}, "Descrescente"),
-    tag("button", {onclick:"{data.ordenaAsc()}"}, "Original"),
-    tag("button", {onclick:"{data.ordenaAsc()}"}, "Crescente")
+    tag("button", {onclick:"{data.ordenaDesc()}"}, "Descrescente"),
+    tag("button", {onclick:"{data.ordenaOriginal()}"}, "Original"),
+    tag("button", {onclick:"{data.embaralha()}"}, "Embaralha")
 );
 ```
+
