@@ -1,0 +1,10 @@
+1) Destacar o comentário para que não fique com o aspecto de comentario comum 
+
+2) Globais: redot.element, redot.event
+
+3) Sintaxe distinta para in e inout
+
+4) Componentizar = problemas
+
+5) Cuidado com as magicas ex json
+
