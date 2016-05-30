@@ -2,21 +2,23 @@ function GraficoDeBarras()
 {
     this.width    = 1024;
     this.height   = 200;
-    this.barWidth = "{width/data.length}";
+    this.barWidth = "{width/d.length}";
+
+    this.init = function()
 
     /**********************************************************************************************
     <div>
         <svg width="{width+50}" height="{height+50}" style="border: 1px black solid;">
             <g transform="translate(25 25)" style="text-anchor: middle;">
-                <include template="Barra" data="{data}" />
+                <include template="Barra" data="{d}" />
             </g>
         </svg>
     </div>
     <div>
-        <button onclick="{data.ordenaAsc()}">Crescente</button>
-        <button onclick="{data.ordenaDesc()}">Descrescente</button>
-        <button onclick="{data.ordenaOriginal()}">Original</button>
-        <button onclick="{data.embaralha()}">Embaralha</button>
+        <button onclick="{d.ordenaAsc()}">Crescente</button>
+        <button onclick="{d.ordenaDesc()}">Descrescente</button>
+        <button onclick="{d.ordenaOriginal()}">Original</button>
+        <button onclick="{d.embaralha()}">Embaralha</button>
     </div>
     **********************************************************************************************/
 }
@@ -25,7 +27,7 @@ function Barra()
 {    
     this.color  = "skyblue";
     this.width  = "{parent.barWidth}";
-    this.height = "{2*data.qtd}";
+    this.height = "{2*d.qtd}";
     this.x      = "{i*width}";
     this.y      = "{parent.height-height}"
     
@@ -45,7 +47,7 @@ function Barra()
             width="{width-2}" 
             fill="{color}"
         />
-        <text x="{width/2}" y="{y-6}" dominant-baseline="middle">{data.qtd}</text> 
+        <text x="{width/2}" y="{y-6}" dominant-baseline="middle">{d.qtd}</text> 
     </g>
     **********************************************************************************************/
 }
@@ -82,7 +84,6 @@ data.embaralha = function()
     }
     redot.changed(this);
 }
-
 
 for(var i=0; i<50; i++)
 {

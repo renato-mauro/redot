@@ -4,8 +4,8 @@ redot.include("d3.min.js");
 function d3_force_layout(context)
 {
     var force = d3.layout.force()
-        .nodes(context.data.nodes)
-        .links(context.data.links)
+        .nodes(context.d.nodes)
+        .links(context.d.links)
     ;
     
     function registerProperty(p)
@@ -27,10 +27,10 @@ function d3_force_layout(context)
 function d3_drag_setup(context)
 {
     var force = context.parent.force;
-    d3.select(redot.element).datum(context.data).call(force.drag);
+    d3.select(redot.element).datum(context.d).call(force.drag);
 }
 
-function Miserables(d)
+function Miserables()
 {    
     this.width    = 1024;
     this.height   = 600;    
@@ -38,7 +38,7 @@ function Miserables(d)
     this.charge   = -120;
     this.radius   = 6;
 
-    this.init = function()
+    this.init = function(d,i)
     {
         this.force    = d3_force_layout(this);
         this.color    = d3.scale.category20();
@@ -51,24 +51,25 @@ function Miserables(d)
         <input type="range" min="2" max="10" step="1" value="{this.radius}" oninput="{redot.inverse()}"/>
         <span>{radius}</span>
         <br/>
-        <svg width="{width}" height="{height}">
-            <include template="MiserableLinks" data="{data.links}"/>
-            <include template="MiserableNodes" data="{data.nodes}"/>
+        <svg width="{width+50}" height="{height}">
+            <include template="MiserableLinks" data="{d.links}"/>
+            <include template="MiserableNodes" data="{d.nodes}"/>
         </svg>
     </div>
     *********************************************************************************/
 }
 
 function MiserableNodes()
-{    
+{
+
     /**********************************************
     <circle
         onenter="{d3_drag_setup(this)}"
         class="node" 
         r="{parent.radius}" 
-        cx="{data.x}" 
-        cy="{data.y}" 
-        fill="{parent.color(data.group)}" 
+        cx="{d.x}" 
+        cy="{d.y}" 
+        fill="{parent.color(d.group)}" 
     />
     **********************************************/
 }
@@ -78,11 +79,11 @@ function MiserableLinks()
     /**********************************************
     <line
         class="link"
-        x1="{data.source.x}" 
-        y1="{data.source.y}" 
-        x2="{data.target.x}" 
-        y2="{data.target.y}"
-        style="stroke-width: {Math.sqrt(data.value)}"
+        x1="{d.source.x}" 
+        y1="{d.source.y}" 
+        x2="{d.target.x}" 
+        y2="{d.target.y}"
+        style="stroke-width: {Math.sqrt(d.value)}"
     />
     **********************************************/
 }
