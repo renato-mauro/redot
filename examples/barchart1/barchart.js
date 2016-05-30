@@ -4,8 +4,6 @@ function GraficoDeBarras()
     this.height   = 200;
     this.barWidth = "{width/d.length}";
 
-    this.init = function()
-
     /**********************************************************************************************
     <div>
         <svg width="{width+50}" height="{height+50}" style="border: 1px black solid;">
