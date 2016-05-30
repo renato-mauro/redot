@@ -1,5 +1,9 @@
 # BarChart1 Example
 
-![BarChart1 Screenshoot]( http://xxx "BarChart1 Screenshoot")
+Click [here](https://jsfiddle.net/renatomauro/mrvv1h2a/) to play with this example in 
+jsfiddler.
+
+![BarChart1 Screenshoot](https://raw.githubusercontent.com/renato-mauro/redot/master/examples/barchart1/BarChart1.png "BarChart1 Screenshoot")
+
 
 
