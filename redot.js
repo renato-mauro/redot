@@ -1,5 +1,28 @@
 var redot = { };
 
+redot.config = { };
+redot.config.decimalSeparator = ".";
+redot.config.thousandSeparator = ",";
+redot.config.defaultDecimalsPercent = 2;
+
+redot.format = { }
+
+redot.format.number = function (num, n) 
+{
+    var s = redot.config.thousandSeparator;
+    var c = redot.config.decimalSeparator;
+
+    var re = '\\d(?=(\\d{3})+' + (n > 0 ? '\\D' : '$') + ')';
+    num = num.toFixed(Math.max(0, ~~n));
+    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+}
+
+redot.format.percent = function(num,decimals)
+{
+    decimals = decimals == undefined ? redot.config.defaultDecimalsPercent : decimals; 
+    return redot.format.number(num*100,decimals) + "%";
+}
+
 /// DOCUMENT TEMPLATE ////////////////////////////////////////////////////////////////////////////////////
 
 var enterQueue = [];
@@ -1611,4 +1634,35 @@ redot.json = function(fileName)
     };
 
 })(); // END OF MAP AND REACTIVE OBJECTS //////////////////////////////////////////////////////////////////////
+
+
+/// PATHS AND CENTROIDS GENERATOR /////////////////////////////////////////////////////////////////////////////
+
+redot.path = { };
+
+redot.centroid = { };
+
+redot.path.pieSlice = function(radius, range)
+{
+    var startAngle = range.begin;
+    var endAngle = range.end;
+    var p1x = Math.cos(startAngle*2*Math.PI)*radius;
+    var p1y = -Math.sin(startAngle*2*Math.PI)*radius;
+    var p2x = Math.cos(endAngle*2*Math.PI)*radius;
+    var p2y = -Math.sin(endAngle*2*Math.PI)*radius;
+    var largeAngleFlag = endAngle-startAngle > 0.5 ? 1 : 0;
+    return ["M0 0L",p1x," ",p1y,"A",radius,",",radius," 0 ", largeAngleFlag, " 0 ",p2x," ",p2y,"z"].join("");
+}
+
+redot.centroid.pieSlice = function(radius, range)
+{
+    var startAngle = range.begin*2*Math.PI;
+    var endAngle = range.end*2*Math.PI;
+    var alpha2 = endAngle-startAngle;
+    var alpha = alpha2/2;
+    var rCentroid = (2*radius*Math.sin(alpha))/(3*alpha);
+    var x = rCentroid * Math.cos(alpha+startAngle);
+    var y = -rCentroid * Math.sin(alpha+startAngle);
+    return "translate("+ x + "," + y + ")";
+}
 
