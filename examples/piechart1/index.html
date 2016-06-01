@@ -34,13 +34,13 @@
             var data =     
             {
                 "date": "April 2016",
-                "usage": [
-                    { "browser": "Internet Explorer", value: 0.096, color: "#D95B43" },
-                    { "browser": "Firefox", value: 0.097, color: "#C02942"  },
-                    { "browser": "Google Chrome", value: 0.572, color: "#ECD078" },
-                    { "browser": "Safari", value: 0.134, color: "#53777A" },
-                    { "browser": "Opera", value: 0.041, color: "#542437" },
-                    { "browser": "Other", value: 0.06, color: "#535353" }
+                "elements": [
+                    { "name": "Internet Explorer", value: 0.096, color: "#D95B43" },
+                    { "name": "Firefox", value: 0.097, color: "#C02942"  },
+                    { "name": "Google Chrome", value: 0.572, color: "#ECD078" },
+                    { "name": "Safari", value: 0.134, color: "#53777A" },
+                    { "name": "Opera", value: 0.041, color: "#542437" },
+                    { "name": "Other", value: 0.06, color: "#535353" }
                 ]
             };
 
@@ -50,7 +50,7 @@
                 this.width    = 400; // define width of client area
                 this.height   = 400; // define height of client area
                 this.radius   = "{width*0.30}";
-                this.count    = "{d.usage.length}";
+                this.count    = "{d.elements.length}";
 
                 /**********************************************************************************
                 <div>
@@ -59,10 +59,10 @@
                             {d.date}
                         </text>
                         <g transform="translate({width/2} {height/2})">
-                            <include template="{PieSlice}" data="{d.usage}" />
+                            <include template="{PieSlice}" data="{d.elements}" />
                         </g>
                         <g transform="translate(0 {height-16*count})">
-                            <include template="{Legend}" data="{d.usage}" />
+                            <include template="{Legend}" data="{d.elements}" />
                         </g>
                     </svg>
                 </div>
@@ -91,12 +91,13 @@
                 /***********************************************************************************
                 <g transform="translate({x} {y})">
                     <circle r="5" cx="8" cy="8" fill="{d.color}"/>
-                    <text class="legend" x="16" y="8">{d.browser}</text>
+                    <text class="legend" x="16" y="8">{d.name}</text>
                 </g>
                 ***********************************************************************************/
             }
 
             redot.applyTemplate("#main", PieChart, data);        
+
         </script>
     </body>
 </html>
