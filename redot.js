@@ -1675,14 +1675,13 @@ redot.centroid.XX = function(radius, range)
     var endAngle = range.end*2*Math.PI;
     var alpha2 = endAngle-startAngle;
     var alpha = alpha2/2;
-    var x, y;
     if(element)
     {
         var bbox = element.getBBox();
-        radius*Math.cos(alpha+startAngle)*(bbox.width/2);
+        radius += 3+(Math.abs(Math.cos(alpha+startAngle)*(bbox.width/2)))+(Math.abs(Math.sin(alpha+startAngle)*(bbox.height/2)));
     }
-    x = radius * Math.cos(alpha+startAngle);
-    y = -radius * Math.sin(alpha+startAngle);
+    var x = radius * Math.cos(alpha+startAngle);
+    var y = -radius * Math.sin(alpha+startAngle);
     return "translate("+ x + "," + y + ")";
 }
 
