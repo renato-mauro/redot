@@ -763,7 +763,8 @@ redot.include = function(fileName)
 
 redot.json = function(fileName)
 {
-    var url = getPathForResource(fileName,2);
+    // var url = getPathForResource(fileName,2);
+    url = fileName;
     return function(callback)
     {
         if(url == null)
@@ -1664,5 +1665,54 @@ redot.centroid.pieSlice = function(radius, range)
     var x = rCentroid * Math.cos(alpha+startAngle);
     var y = -rCentroid * Math.sin(alpha+startAngle);
     return "translate("+ x + "," + y + ")";
+}
+
+/// DATA TABLE CONVERSION FUNCTIONS ///////////////////////////////////////////////////////////////
+
+redot.table = { }
+
+redot.table.fixedColumn = function(table, fixedColumnsNames)
+{
+    var res = [];
+    for(var i=0; i<table.length; i++)
+    {
+        var oldRow = table[i];
+        var newRowData = [];
+        var newRow = { };
+        for(var j=0; j<fixedColumnsNames.length; j++)
+        {
+            var attrName = fixedColumnsNames[j];
+            newRow[attrName] = oldRow[attrName];
+            delete(oldRow[attrName]);
+        }
+        for(var attrName in oldRow)
+        {
+            newRowData.push({ name: attrName, value: oldRow[attrName] });
+        }
+        newRow.elements = newRowData;
+        res.push(newRow);
+    }
+    return res;
+}
+
+redot.table.grid = function(table, numberOfColumns)
+{
+    numberOfColumns = numberOfColumns || 2;
+    var res = [];
+    var currentLine = [];
+    for(var i=0; i<table.length; i++)
+    {
+        if(currentLine.length == numberOfColumns)
+        {
+            res.push(currentLine);
+            currentLine = [];
+        }
+        currentLine.push(table[i]);
+    }
+    if(currentLine.length>0)
+    {
+        res.push(currentLine);
+    }
+    return res;
 }
 
