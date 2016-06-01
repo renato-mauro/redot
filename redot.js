@@ -1667,6 +1667,26 @@ redot.centroid.pieSlice = function(radius, range)
     return "translate("+ x + "," + y + ")";
 }
 
+redot.centroid.XX = function(radius, range)
+{
+    var element = redot.element;
+
+    var startAngle = range.begin*2*Math.PI;
+    var endAngle = range.end*2*Math.PI;
+    var alpha2 = endAngle-startAngle;
+    var alpha = alpha2/2;
+    var x, y;
+    if(element)
+    {
+        var bbox = element.getBBox();
+        radius*Math.cos(alpha+startAngle)*(bbox.width/2);
+    }
+    x = radius * Math.cos(alpha+startAngle);
+    y = -radius * Math.sin(alpha+startAngle);
+    return "translate("+ x + "," + y + ")";
+}
+
+
 /// DATA TABLE CONVERSION FUNCTIONS ///////////////////////////////////////////////////////////////
 
 redot.table = { }
