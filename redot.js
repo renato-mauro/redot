@@ -1678,7 +1678,7 @@ redot.centroid.XX = function(radius, range)
     if(element)
     {
         var bbox = element.getBBox();
-        radius += 3+(Math.abs(Math.cos(alpha+startAngle)*(bbox.width/2)))+(Math.abs(Math.sin(alpha+startAngle)*(bbox.height/2)));
+        radius += 2+Math.abs(Math.cos(alpha+startAngle)*(bbox.width/2));
     }
     var x = radius * Math.cos(alpha+startAngle);
     var y = -radius * Math.sin(alpha+startAngle);
