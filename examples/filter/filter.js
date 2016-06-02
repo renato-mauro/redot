@@ -29,13 +29,12 @@ function GraficoDeBarras()
 
 function Barra()
 {
-    this.maxQtd = redot.agregate.max("{value}");
+    this.maxQtd = redot.agregate.max("{d.qtd}");
     this.yScale = "{parent.height/maxQtd}";
     this.width  = "{parent.barWidth}";
     this.height = "{yScale*d.qtd}";
     this.x      = "{i*width}";
     this.y      = "{parent.height-height}";
-    this.value  = "{d.qtd}";
     this.color  = "{global.selectedItem == d ? 'blue' : 'orange'}"
 
     this.sel = function(d)
