@@ -22,6 +22,10 @@
         {
           "name": "Opera",
           "value": 0.041
+        },
+        {
+          "name": "Other",
+          "value": 0.06
         }
       ]
     },
@@ -47,6 +51,10 @@
         {
           "name": "Opera",
           "value": 0.027
+        },
+        {
+          "name": "Other",
+          "value": 0.049
         }
       ]
     },
@@ -72,6 +80,10 @@
         {
           "name": "Opera",
           "value": 0.031
+        },
+        {
+          "name": "Other",
+          "value": 0.049
         }
       ]
     },
@@ -97,6 +109,10 @@
         {
           "name": "Opera",
           "value": 0.032
+        },
+        {
+          "name": "Other",
+          "value": 0.051
         }
       ]
     }
@@ -124,6 +140,10 @@
         {
           "name": "Opera",
           "value": 0.033
+        },
+        {
+          "name": "Other",
+          "value": 0.049
         }
       ]
     },
@@ -149,6 +169,10 @@
         {
           "name": "Opera",
           "value": 0.03
+        },
+        {
+          "name": "Other",
+          "value": 0.05
         }
       ]
     },
@@ -174,6 +198,10 @@
         {
           "name": "Opera",
           "value": 0.031
+        },
+        {
+          "name": "Other",
+          "value": 0.053
         }
       ]
     },
@@ -199,6 +227,10 @@
         {
           "name": "Opera",
           "value": 0.031
+        },
+        {
+          "name": "Other",
+          "value": 0.053
         }
       ]
     }
@@ -226,6 +258,10 @@
         {
           "name": "Opera",
           "value": 0.037
+        },
+        {
+          "name": "Other",
+          "value": 0.059
         }
       ]
     },
@@ -251,6 +287,10 @@
         {
           "name": "Opera",
           "value": 0.039
+        },
+        {
+          "name": "Other",
+          "value": 0.062
         }
       ]
     },
@@ -276,6 +316,10 @@
         {
           "name": "Opera",
           "value": 0.033
+        },
+        {
+          "name": "Other",
+          "value": 0.069
         }
       ]
     },
@@ -301,6 +345,10 @@
         {
           "name": "Opera",
           "value": 0.033
+        },
+        {
+          "name": "Other",
+          "value": 0.063
         }
       ]
     }
@@ -328,6 +376,10 @@
         {
           "name": "Opera",
           "value": 0.031
+        },
+        {
+          "name": "Other",
+          "value": 0.065
         }
       ]
     },
@@ -353,6 +405,10 @@
         {
           "name": "Opera",
           "value": 0.032
+        },
+        {
+          "name": "Other",
+          "value": 0.065
         }
       ]
     },
@@ -378,6 +434,10 @@
         {
           "name": "Opera",
           "value": 0.032
+        },
+        {
+          "name": "Other",
+          "value": 0.068
         }
       ]
     },
@@ -403,6 +463,10 @@
         {
           "name": "Opera",
           "value": 0.031
+        },
+        {
+          "name": "Other",
+          "value": 0.064
         }
       ]
     }
