@@ -6,7 +6,7 @@
     "Google Chrome": 0.572,
     "Safari": 0.134,
     "Opera": 0.041,
-    "Other": 0.06000000000000005
+    "Other": 0.06
   },
   {
     "Date": "March 2016",
@@ -15,7 +15,7 @@
     "Google Chrome": 0.519,
     "Safari": 0.162,
     "Opera": 0.027,
-    "Other": 0.04899999999999993
+    "Other": 0.049
   },
   {
     "Date": "February 2016",
@@ -24,7 +24,7 @@
     "Google Chrome": 0.475,
     "Safari": 0.201,
     "Opera": 0.031,
-    "Other": 0.049000000000000044
+    "Other": 0.049
   },
   {
     "Date": "January 2016",
@@ -33,7 +33,7 @@
     "Google Chrome": 0.473,
     "Safari": 0.207,
     "Opera": 0.032,
-    "Other": 0.051000000000000045
+    "Other": 0.051
   },
   {
     "Date": "December 2015",
@@ -42,7 +42,7 @@
     "Google Chrome": 0.47,
     "Safari": 0.202,
     "Opera": 0.033,
-    "Other": 0.049000000000000044
+    "Other": 0.049
   },
   {
     "Date": "November 2015",
@@ -51,7 +51,7 @@
     "Google Chrome": 0.461,
     "Safari": 0.211,
     "Opera": 0.03,
-    "Other": 0.04999999999999993
+    "Other": 0.05
   },
   {
     "Date": "October 2015",
@@ -60,7 +60,7 @@
     "Google Chrome": 0.451,
     "Safari": 0.208,
     "Opera": 0.031,
-    "Other": 0.05300000000000005
+    "Other": 0.053
   },
   {
     "Date": "September 2015",
@@ -69,7 +69,7 @@
     "Google Chrome": 0.455,
     "Safari": 0.199,
     "Opera": 0.031,
-    "Other": 0.052999999999999825
+    "Other": 0.053
   },
   {
     "Date": "August 2015",
@@ -78,7 +78,7 @@
     "Google Chrome": 0.469,
     "Safari": 0.166,
     "Opera": 0.037,
-    "Other": 0.05899999999999994
+    "Other": 0.059
   },
   {
     "Date": "July 2015",
@@ -87,7 +87,7 @@
     "Google Chrome": 0.465,
     "Safari": 0.165,
     "Opera": 0.039,
-    "Other": 0.061999999999999944
+    "Other": 0.062
   },
   {
     "Date": "June 2015",
@@ -96,7 +96,7 @@
     "Google Chrome": 0.458,
     "Safari": 0.162,
     "Opera": 0.033,
-    "Other": 0.06899999999999995
+    "Other": 0.069
   },
   {
     "Date": "May 2015",
@@ -105,7 +105,7 @@
     "Google Chrome": 0.445,
     "Safari": 0.161,
     "Opera": 0.033,
-    "Other": 0.06299999999999994
+    "Other": 0.063
   },
   {
     "Date": "April 2015",
@@ -114,7 +114,7 @@
     "Google Chrome": 0.437,
     "Safari": 0.159,
     "Opera": 0.031,
-    "Other": 0.06499999999999995
+    "Other": 0.065
   },
   {
     "Date": "March 2015",
@@ -123,7 +123,7 @@
     "Google Chrome": 0.439,
     "Safari": 0.157,
     "Opera": 0.032,
-    "Other": 0.06499999999999995
+    "Other": 0.065
   },
   {
     "Date": "February 2015",
@@ -132,7 +132,7 @@
     "Google Chrome": 0.428,
     "Safari": 0.155,
     "Opera": 0.032,
-    "Other": 0.06799999999999995
+    "Other": 0.068
   },
   {
     "Date": "January 2015",
@@ -141,6 +141,6 @@
     "Google Chrome": 0.43,
     "Safari": 0.152,
     "Opera": 0.031,
-    "Other": 0.06400000000000006
+    "Other": 0.064
   }
 ]
