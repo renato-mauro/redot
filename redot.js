@@ -1735,3 +1735,13 @@ redot.table.grid = function(table, numberOfColumns)
     return res;
 }
 
+redot.first = function()
+{
+    return arguments.length > 0 ? arguments[0] : undefined;
+}
+
+redot.last = function()
+{
+    return arguments.length > 0 ? arguments[arguments.length-1] : undefined;
+}
+
