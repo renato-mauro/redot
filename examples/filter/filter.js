@@ -42,15 +42,14 @@ function Barra()
         global.selectedItem = d;
     }
     
-    /**********************************************************************************************
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     <g class="bar" style="transform:translate({x}px,0);">
         <rect onclick="{sel(d)}" x="1" y="{y}" height="{height}" width="{width-2}" fill="{color}"/>
         <text x="{width/2}" y="{y-6}" dominant-baseline="middle">{d.qtd}</text> 
     </g>
-    **********************************************************************************************/
+    ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 }
 
 redot.applyTemplate("#main", GraficoDeBarras, d1);
 redot.applyTemplate("#main", GraficoDeBarras, d2);
 redot.applyTemplate("#main", GraficoDeBarras, data);
-
