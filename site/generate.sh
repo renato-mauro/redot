@@ -2,6 +2,65 @@
 
 EXAMPLES_FOLDER=../examples
 
+echo -n "" > /tmp/examplesMainPage.html
+
+function exampleMainPage {
+
+	echo '
+        <div class="col-md-6">
+          <div class="thumbnail">
+            <img src="site/thumbnails/$1.png" alt="$2">
+            <div class="caption">
+              <h3>$2</h3>
+              <p>$3</p>
+              <p><a href="site/examples/$1/$1.html" class="btn btn-primary" role="button">Open Example</a></p>
+            </div>
+          </div>
+        </div>
+	' >> /tmp/examplesMainPage.html
+}
+
+function indexPage {
+
+	echo '
+		<!DOCTYPE html>
+		<html lang="en">
+		  <head>
+		    <meta charset="utf-8">
+		    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		    <meta name="viewport" content="width=device-width, initial-scale=1">
+		    <meta name="description" content="REDOT - Reactive Document Templates">
+		    <meta name="author" content="Renato Campos Mauro">
+		    <title>REDOT</title>
+		    <link href="site/css/bootstrap.min.css" rel="stylesheet">
+		  </head>
+		  <body>
+	' > ../index.html
+
+	cat /tmp/begin.html >> ../index.html
+
+	echo '    
+	    <div class="container">
+	      <div class="jumbotron">
+	        <h1>REDOT</h1>
+	        <p>Redot stands for <b>Reactive Document Templates</b>. It is a javascript API (Application Interface) and an embedded DSL (domain specific language) that introduces reactive capabilities to document generation driven by data. The arrangement of generated DOM fragments reflects the data structure. Modification in underlying data automatically changes view layer. Redot manages automatically dependency between data objects expressions, and DOM fragments.</p>
+	        <p>
+	          <a class="btn btn-lg btn-primary" href="https://github.com/renato-mauro/redot" role="button">View Project in Github</a>
+	          <a class="btn btn-lg btn-primary" href="https://github.com/renato-mauro/redot/zipball/master" role="button">Download Zip File</a>
+	        </p>
+	      </div>
+	' > ../index.html
+
+	cat /tmp/examplesMainPage.html >> ../index.html
+
+	echo '
+		    </div>
+		  </body>
+		</html>
+	' >> ../index.html	
+}
+
+
 function navBarTemplate {
 	echo '
 		<nav class="navbar navbar-default">
@@ -13,13 +72,13 @@ function navBarTemplate {
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">REDOT</a>
+		      <a class="navbar-brand" href="http://renato-mauro.github.io/redot/">REDOT</a>
 		    </div>
 		    <div id="navbar" class="navbar-collapse collapse">
 		      <ul class="nav navbar-nav">
-		        <li><a href="#">Home</a></li>
+		        <li><a href="https://github.com/renato-mauro/redot">Github</a></li>
 		        <li><a href="#">Tutorial</a></li>
-		        <li><a href="#">Download</a></li>
+		        <li><a href="https://github.com/renato-mauro/redot/archive/master.zip">Download</a></li>
 		        <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
@@ -45,6 +104,7 @@ function navBarTemplate {
 		</nav>
 	' >> /tmp/begin.html
 }
+
 
 function fiddleForm {
 	echo '
@@ -121,6 +181,7 @@ for examplePath in $EXAMPLES_FOLDER/*; do
 			cat $examplePath/README.md >> /tmp/page.md
 			viewTitle=`pandoc $examplePath/README.md | sed -n -e '1!d;s/[^>]*>\([^<]*\)<.*/\1/p'`
 			viewDescription=`pandoc $examplePath/README.md | sed -n -e '2!d;s/[^>]*>\([^<]*\)<.*/\1/p'`
+			exampleMainPage $exampleName $viewTitle $viewDescription
 		fi
 		echo "<button onclick=\"jsfiddle('$viewTitle','$viewDescription','$EXTERNAL_JS')\">Open in JSFiddle</button>" >> /tmp/page.md
 		echo "<div id=\"main\" style=\"margin:10px 0;\"></div>" >> /tmp/page.md
@@ -171,5 +232,6 @@ for examplePath in $EXAMPLES_FOLDER/*; do
 		echo "</div>" >> /tmp/page.md		
 		cp /tmp/page.md /tmp/$exampleName.md
 		pandoc -o examples/$exampleName.html -s -H /tmp/style.css -B /tmp/begin.html -A /tmp/end.html -M pagetitle=$exampleName /tmp/page.md
+		indexPage
 	fi
 done
