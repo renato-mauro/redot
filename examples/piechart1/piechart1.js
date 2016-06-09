@@ -43,7 +43,7 @@ function PieSlice()
 
     /***********************************************************************************
     <path d="{redot.path.pieSlice(parent.radius,pieRange)}" stroke="black" fill="{d.color}"/>
-    <text class="pietext" transform="{redot.centroid.XX(parent.radius,pieRange)}">
+    <text class="pietext" transform="{redot.centroid.pieSlice(parent.radius,pieRange)}">
         {redot.format.percent(d.value)}
     </text>
     ***********************************************************************************/

@@ -58,6 +58,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   text.title {
       font-size: 20pt;
   }
+  
+  text.legend {
+      text-anchor: start;
+  }
   </style>
 </head>
 <body>
@@ -114,6 +118,10 @@ Open in JSFiddle
 8
 9
 10
+11
+12
+13
+14
 </pre></td><td class="sourceCode"><pre><code class="sourceCode css">text <span class="kw">{</span>
     <span class="kw">font-family:</span> <span class="dt">sans-serif</span><span class="kw">;</span>
     <span class="kw">font-size:</span> <span class="dt">10pt</span><span class="kw">;</span>
@@ -123,6 +131,10 @@ Open in JSFiddle
 
 text<span class="fl">.title</span> <span class="kw">{</span>
     <span class="kw">font-size:</span> <span class="dt">20pt</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+text<span class="fl">.legend</span> <span class="kw">{</span>
+    <span class="kw">text-anchor:</span> start<span class="kw">;</span>
 <span class="kw">}</span></code></pre></td></tr></table></div>
 <h2 id="javascript">Javascript</h2>
 <div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -236,7 +248,7 @@ text<span class="fl">.title</span> <span class="kw">{</span>
 
     <span class="co">/***********************************************************************************</span>
 <span class="co">    &lt;path d=&quot;{redot.path.pieSlice(parent.radius,pieRange)}&quot; stroke=&quot;black&quot; fill=&quot;{d.color}&quot;/&gt;</span>
-<span class="co">    &lt;text class=&quot;pietext&quot; transform=&quot;{redot.centroid.XX(parent.radius,pieRange)}&quot;&gt;</span>
+<span class="co">    &lt;text class=&quot;pietext&quot; transform=&quot;{redot.centroid.pieSlice(parent.radius,pieRange)}&quot;&gt;</span>
 <span class="co">        {redot.format.percent(d.value)}</span>
 <span class="co">    &lt;/text&gt;</span>
 <span class="co">    ***********************************************************************************/</span>
@@ -304,7 +316,7 @@ function PieSlice()
 
     /***********************************************************************************
     <path d="{redot.path.pieSlice(parent.radius,pieRange)}" stroke="black" fill="{d.color}"/>
-    <text class="pietext" transform="{redot.centroid.XX(parent.radius,pieRange)}">
+    <text class="pietext" transform="{redot.centroid.pieSlice(parent.radius,pieRange)}">
         {redot.format.percent(d.value)}
     </text>
     ***********************************************************************************/
