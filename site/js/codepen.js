@@ -1,9 +1,11 @@
+var urlBase = "http://renato-mauro.github.io/redot/"
+
 var formData = {
 	"editors": "001",
 	"layout": "top",
 	"private": false,
 	"html" : '<div id="main"></div>',
-	"js_external" : 'https://raw.githubusercontent.com/renato-mauro/redot/master/redot.js'
+	"js_external" : urlBase + 'redot.js'
 }
 
 function codePenFillData(form)
@@ -27,10 +29,11 @@ function codePenFillData(form)
 	return true;
 }
 
-function codePen(title,description)
+function codePen(title,description,extraPath)
 {
 	formData.title = title;
 	formData.description = description;
+	formData.js_external += extraPath;
 	document.write('<form method="post" action="http://codepen.io/pen/define" onsubmit="return codePenFillData(this)" target="_blank">');
 	document.write('<input type="hidden" name="data" value=""/>');
 	document.write('<input type="submit" class="btn btn-primary" value="Edit\'n Play in CodePen"/>');

@@ -24,6 +24,17 @@ for examplePath in $EXAMPLES_FOLDER/*; do
 		exampleName=`basename $examplePath`
 		echo "" > /tmp/page.md
 		echo "Creating page for $exampleName"
+		EXTERNAL_JS=""
+		for js in $examplePath/*.js; do
+			if [ -f $js ]; then
+				if [ $js != $examplePath/$exampleName.js ]; then
+					echo "<script type=\"text/javascript\" src=\"../$js\"></script>" >> /tmp/page.md
+					EXTERNAL_JS="$EXTERNAL_JS;http://renato-mauro.github.io/redot/site/$js"
+					echo "====================> $EXTERNAL_JS"
+				fi
+			fi
+		done
+
 		echo "<div class=\"container\">" >> /tmp/page.md
 		if [ -f $examplePath/README.md ];then
 			echo "Achei README"
@@ -32,7 +43,7 @@ for examplePath in $EXAMPLES_FOLDER/*; do
 			viewDescription=`pandoc $examplePath/README.md | sed -n -e '2!d;s/[^>]*>\([^<]*\)<.*/\1/p'`
 		fi
 		echo "<script type=\"text/javascript\" src=\"../js/codepen.js\"></script>" >> /tmp/page.md
-		echo "<script type=\"text/javascript\">codePen('$viewTitle','$viewDescription')</script>" >> /tmp/page.md
+		echo "<script type=\"text/javascript\">codePen('$viewTitle','$viewDescription','$EXTERNAL_JS')</script>" >> /tmp/page.md
 		echo "<div id=\"main\" style=\"margin:10px 0;\"></div>" >> /tmp/page.md
 		echo "<link href=\"../css/bootstrap.min.css\" rel=\"stylesheet\">" > /tmp/style.css
 		echo "<style type=\"text/css\">" >> /tmp/style.css
@@ -57,14 +68,6 @@ for examplePath in $EXAMPLES_FOLDER/*; do
 			fi
 		done
 		echo "</style>" >> /tmp/style.css
-
-		for js in $examplePath/*.js; do
-			if [ -f $js ]; then
-				if [ $js != $examplePath/$exampleName.js ]; then
-					echo "<script type=\"text/javascript\" src=\"../$js\"></script>" >> /tmp/page.md
-				fi
-			fi
-		done
 
 		if [ -f $examplePath/$exampleName.js ]; then
 			echo "Achei JS"
