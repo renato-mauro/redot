@@ -57,10 +57,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       font-size: 8pt;
       text-anchor: middle; 
   }
-  
-  svg {
-      border: 0px black solid;
-  }  
   </style>
 </head>
 <body>
@@ -116,10 +112,6 @@ Open in JSFiddle
 7
 8
 9
-10
-11
-12
-13
 </pre></td><td class="sourceCode"><pre><code class="sourceCode css">g<span class="fl">.bar</span> <span class="kw">{</span>
     <span class="kw">transition:</span> transform <span class="dt">1s</span> ease<span class="kw">;</span>
 <span class="kw">}</span>
@@ -128,11 +120,7 @@ g<span class="fl">.bar</span> text <span class="kw">{</span>
     <span class="kw">font-family:</span> <span class="dt">sans-serif</span><span class="kw">;</span>
     <span class="kw">font-size:</span> <span class="dt">8pt</span><span class="kw">;</span>
     <span class="kw">text-anchor:</span> <span class="dt">middle</span><span class="kw">;</span> 
-<span class="kw">}</span>
-
-svg <span class="kw">{</span>
-    <span class="kw">border:</span> <span class="dt">0px</span> <span class="dt">black</span> <span class="dt">solid</span><span class="kw">;</span>
-<span class="kw">}</span>  </code></pre></td></tr></table></div>
+<span class="kw">}</span></code></pre></td></tr></table></div>
 <h2 id="javascript">Javascript</h2>
 <div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -192,19 +180,19 @@ svg <span class="kw">{</span>
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> global <span class="op">=</span> <span class="op">{</span> <span class="dt">selectedItem</span><span class="op">:</span> <span class="kw">null</span> <span class="op">};</span>
 
 <span class="kw">var</span> data <span class="op">=</span> []<span class="op">;</span>
-<span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="dv">20</span><span class="op">;</span> i<span class="op">++</span>)
+<span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="dv">50</span><span class="op">;</span> i<span class="op">++</span>)
 <span class="op">{</span>
     <span class="va">data</span>.<span class="at">push</span>(<span class="op">{</span><span class="dt">qtd</span><span class="op">:~~</span>(<span class="va">Math</span>.<span class="at">random</span>()<span class="op">*</span><span class="dv">50</span>)<span class="op">+</span><span class="dv">10</span><span class="op">}</span>)<span class="op">;</span>
 <span class="op">}</span>
 <span class="kw">var</span> d1 <span class="op">=</span> <span class="va">redot</span>.<span class="at">filter</span>(data<span class="op">,</span><span class="st">&quot;{d.qtd&lt;30}&quot;</span>)<span class="op">;</span>
 <span class="kw">var</span> d2 <span class="op">=</span> <span class="va">d1</span>.<span class="at">notSelected</span>()<span class="op">;</span>
 
-<span class="co">// setTimeout(function(){data.sort(function(a,b){return a.qtd-b.qtd});redot.changed(data)},5000);</span>
+<span class="at">setTimeout</span>(<span class="kw">function</span>()<span class="op">{</span><span class="va">data</span>.<span class="at">sort</span>(<span class="kw">function</span>(a<span class="op">,</span>b)<span class="op">{</span><span class="cf">return</span> <span class="va">a</span>.<span class="at">qtd</span><span class="op">-</span><span class="va">b</span>.<span class="at">qtd</span><span class="op">}</span>)<span class="op">;</span><span class="va">redot</span>.<span class="at">changed</span>(data)<span class="op">},</span><span class="dv">5000</span>)<span class="op">;</span>
 
 <span class="kw">function</span> <span class="at">GraficoDeBarras</span>()
 <span class="op">{</span>    
-    <span class="kw">this</span>.<span class="at">width</span>    <span class="op">=</span> <span class="dv">500</span><span class="op">;</span>
-    <span class="kw">this</span>.<span class="at">height</span>   <span class="op">=</span> <span class="dv">70</span><span class="op">;</span>
+    <span class="kw">this</span>.<span class="at">width</span>    <span class="op">=</span> <span class="dv">1024</span><span class="op">;</span>
+    <span class="kw">this</span>.<span class="at">height</span>   <span class="op">=</span> <span class="dv">150</span><span class="op">;</span>
     <span class="kw">this</span>.<span class="at">barWidth</span> <span class="op">=</span> <span class="st">&quot;{width/d.length}&quot;</span><span class="op">;</span>
 
     <span class="co">/*******************************************************</span>
@@ -249,19 +237,19 @@ svg <span class="kw">{</span>
 var global = { selectedItem: null };
 
 var data = [];
-for(var i=0; i<20; i++)
+for(var i=0; i<50; i++)
 {
     data.push({qtd:~~(Math.random()*50)+10});
 }
 var d1 = redot.filter(data,"{d.qtd<30}");
 var d2 = d1.notSelected();
 
-// setTimeout(function(){data.sort(function(a,b){return a.qtd-b.qtd});redot.changed(data)},5000);
+setTimeout(function(){data.sort(function(a,b){return a.qtd-b.qtd});redot.changed(data)},5000);
 
 function GraficoDeBarras()
 {    
-    this.width    = 500;
-    this.height   = 70;
+    this.width    = 1024;
+    this.height   = 150;
     this.barWidth = "{width/d.length}";
 
     /*******************************************************
