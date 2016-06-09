@@ -1,25 +1,25 @@
 var global = { selectedItem: null };
 
 var data = [];
-for(var i=0; i<50; i++)
+for(var i=0; i<20; i++)
 {
     data.push({qtd:~~(Math.random()*50)+10});
 }
 var d1 = redot.filter(data,"{d.qtd<30}");
 var d2 = d1.notSelected();
 
-setTimeout(function(){data.sort(function(a,b){return a.qtd-b.qtd});redot.changed(data)},5000);
+// setTimeout(function(){data.sort(function(a,b){return a.qtd-b.qtd});redot.changed(data)},5000);
 
 function GraficoDeBarras()
 {    
-    this.width    = 1024;
-    this.height   = 200;
+    this.width    = 500;
+    this.height   = 70;
     this.barWidth = "{width/d.length}";
 
     /*******************************************************
     <div>
-        <svg width="{width+50}" height="{height+50}">
-            <g transform="translate(25,25)">
+        <svg width="{width+30}" height="{height+30}">
+            <g transform="translate(15,15)">
                 <include template="Barra" data="{d}" />
             </g>
         </svg>
