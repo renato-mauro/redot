@@ -1,0 +1,10 @@
+g.bar
+{
+    transition: transform 1s ease;
+}
+
+g.bar text 
+{
+    font-family: sans-serif;
+    font-size: 10pt;
+}

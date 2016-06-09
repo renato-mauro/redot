@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>barchart1</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+  td.lineNumbers {width:60px;}
+  </style>
+  <style id="theStyle">
+  g.bar
+  {
+      transition: transform 1s ease;
+  }
+  
+  g.bar text 
+  {
+      font-family: sans-serif;
+      font-size: 10pt;
+  }</style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">REDOT</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Tutorial</a></li>
+        <li><a href="#">Download</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+</nav>
+<div class="container">
+<h1 id="barchart1-example">BarChart1 Example</h1>
+<p>Simple Bar Chart with sort array demonstration. Includes CSS transition to show arrays manipulation reflecting directly in data visualization.</p>
+<script type="text/javascript" src="js/codepen.js"></script>
+<script type="text/javascript">codePen()</script>
+<div id="main" style="margin:10px 0;">
+
+</div>
+<h2 id="css-barchart1.css">CSS (barchart1.css)</h2>
+<div class="sourceCode"><table class="sourceCode css numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="sourceCode"><pre><code class="sourceCode css">g<span class="fl">.bar</span>
+<span class="kw">{</span>
+    <span class="kw">transition:</span> transform <span class="dt">1s</span> ease<span class="kw">;</span>
+<span class="kw">}</span>
+
+g<span class="fl">.bar</span> text 
+<span class="kw">{</span>
+    <span class="kw">font-family:</span> <span class="dt">sans-serif</span><span class="kw">;</span>
+    <span class="kw">font-size:</span> <span class="dt">10pt</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></td></tr></table></div>
+<h2 id="javascript">Javascript</h2>
+<div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="co">// Barchart DEMO 01</span>
+<span class="co">// Ordinary javascript array. Generating random data.</span>
+<span class="kw">var</span> data <span class="op">=</span> []<span class="op">;</span>
+<span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="dv">20</span><span class="op">;</span> i<span class="op">++</span>) <span class="co">// sample with 20 elements</span>
+<span class="op">{</span>
+    <span class="co">// generate itegers randomically between 10 and 100</span>
+    <span class="kw">var</span> randomQtd <span class="op">=</span> <span class="at">parseInt</span>(<span class="va">Math</span>.<span class="at">random</span>()<span class="op">*</span><span class="dv">91</span>)<span class="op">+</span><span class="dv">10</span><span class="op">;</span>
+    <span class="co">// store new object in array with attributes &quot;qtd&quot; and &quot;original&quot;,</span>
+    <span class="co">// with original object position in the array.</span>
+    <span class="va">data</span>.<span class="at">push</span>(<span class="op">{</span><span class="dt">qtd</span><span class="op">:</span>randomQtd<span class="op">,</span><span class="dt">original</span><span class="op">:</span>i<span class="op">}</span>)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="co">// BarChart Template</span>
+<span class="kw">function</span> <span class="at">BarChart</span>()
+<span class="op">{</span>
+    <span class="kw">this</span>.<span class="at">width</span>    <span class="op">=</span> <span class="dv">500</span><span class="op">;</span> <span class="co">// define width of client area</span>
+    <span class="kw">this</span>.<span class="at">height</span>   <span class="op">=</span> <span class="dv">200</span><span class="op">;</span> <span class="co">// define height of client area</span>
+    <span class="kw">this</span>.<span class="at">barWidth</span> <span class="op">=</span> <span class="st">&quot;{width/d.length}&quot;</span><span class="op">;</span> <span class="co">// reactive expression</span>
+    
+    <span class="co">// in reactive expression we can use variables defined in &quot;this&quot; context,</span>
+    <span class="co">// global variables, global functions and the implicits variables d, i and parent.</span>
+    <span class="co">// d is a reference to the data object. i is the index of d object in </span>
+    <span class="co">// the collection. parent is the parent context. In this case parent is null</span>
+    <span class="co">// because BarChart is the root of template.</span>
+
+    <span class="co">// The HTML code bellow is a comment for javascript, but not for redot. </span>
+    <span class="co">// It is a document fragment that generates the underlied data visualization.</span>
+
+    <span class="co">/**********************************************************************************</span>
+<span class="co">    &lt;div&gt;</span>
+<span class="co">        &lt;svg width=&quot;{width+50}&quot; height=&quot;{height+50}&quot; style=&quot;border: 1px black solid;&quot;&gt;</span>
+<span class="co">            &lt;g transform=&quot;translate(25 25)&quot; style=&quot;text-anchor: middle;&quot;&gt;</span>
+<span class="co">                &lt;include template=&quot;{Bar}&quot; data=&quot;{d}&quot; /&gt;</span>
+<span class="co">            &lt;/g&gt;</span>
+<span class="co">        &lt;/svg&gt;</span>
+<span class="co">    &lt;/div&gt;</span>
+<span class="co">    &lt;div&gt;</span>
+<span class="co">        &lt;button onclick=&quot;{d.sortAsc()}&quot;&gt;Sort Ascending&lt;/button&gt;</span>
+<span class="co">        &lt;button onclick=&quot;{d.sortDesc()}&quot;&gt;Sort Descending&lt;/button&gt;</span>
+<span class="co">        &lt;button onclick=&quot;{d.startPosition()}&quot;&gt;Start Position&lt;/button&gt;</span>
+<span class="co">        &lt;button onclick=&quot;{d.shuffle()}&quot;&gt;Shuffle&lt;/button&gt;</span>
+<span class="co">    &lt;/div&gt;</span>
+<span class="co">    ********************************************************************************/</span>
+<span class="op">}</span>
+
+<span class="co">// Bar Template</span>
+<span class="kw">function</span> <span class="at">Bar</span>()
+<span class="op">{</span>    
+    <span class="kw">this</span>.<span class="at">color</span>  <span class="op">=</span> <span class="st">&quot;skyblue&quot;</span><span class="op">;</span> <span class="co">// bar color referenced in fill attribute of rect</span>
+    <span class="kw">this</span>.<span class="at">width</span>  <span class="op">=</span> <span class="st">&quot;{parent.barWidth}&quot;</span><span class="op">;</span> <span class="co">// bar width is a reference to parent barWidth</span>
+    <span class="kw">this</span>.<span class="at">height</span> <span class="op">=</span> <span class="st">&quot;{2*d.qtd}&quot;</span><span class="op">;</span> <span class="co">// height of bars. qtd is a data attribute</span>
+    <span class="kw">this</span>.<span class="at">x</span>      <span class="op">=</span> <span class="st">&quot;{i*width}&quot;</span><span class="op">;</span> <span class="co">// x position of the bar.</span>
+    <span class="kw">this</span>.<span class="at">y</span>      <span class="op">=</span> <span class="st">&quot;{parent.height-height}&quot;</span><span class="op">;</span> <span class="co">// y position of the bar</span>
+    
+    <span class="kw">this</span>.<span class="at">select</span> <span class="op">=</span> <span class="kw">function</span>(flag) <span class="co">// callback to onmouseover and onmouseout events</span>
+    <span class="op">{</span>
+        <span class="co">// hovering effect</span>
+        <span class="kw">this</span>.<span class="at">color</span> <span class="op">=</span> flag <span class="op">?</span> <span class="st">&quot;orange&quot;</span> : <span class="st">&quot;skyblue&quot;</span><span class="op">;</span>
+    <span class="op">}</span>
+    
+    <span class="co">// Document template for each bar</span>
+    <span class="co">/***********************************************************************************</span>
+<span class="co">    &lt;g class=&quot;bar&quot; style=&quot;transform:translate({x}px,0);&quot;&gt;</span>
+<span class="co">        &lt;rect </span>
+<span class="co">            onmouseover=&quot;{select(true)}&quot; </span>
+<span class="co">            onmouseout=&quot;{select(false)}&quot; </span>
+<span class="co">            x=&quot;1&quot; </span>
+<span class="co">            y=&quot;{y}&quot; </span>
+<span class="co">            height=&quot;{height}&quot; </span>
+<span class="co">            width=&quot;{width-2}&quot; </span>
+<span class="co">            fill=&quot;{color}&quot;</span>
+<span class="co">        /&gt;</span>
+<span class="co">        &lt;text x=&quot;{width/2}&quot; y=&quot;{y-6}&quot; dominant-baseline=&quot;middle&quot;&gt;{d.qtd}&lt;/text&gt; </span>
+<span class="co">    &lt;/g&gt;</span>
+<span class="co">    ***********************************************************************************/</span>
+<span class="op">}</span>
+
+<span class="co">// Attaching to data array sort and shuffle functions</span>
+
+<span class="co">// sorting ascending</span>
+<span class="va">data</span>.<span class="at">sortAsc</span> <span class="op">=</span> <span class="kw">function</span>()
+<span class="op">{</span>
+    <span class="kw">this</span>.<span class="at">sort</span>(<span class="kw">function</span>(a<span class="op">,</span>b)<span class="op">{</span><span class="cf">return</span> <span class="va">a</span>.<span class="at">qtd</span><span class="op">-</span><span class="va">b</span>.<span class="at">qtd</span><span class="op">}</span>)<span class="op">;</span>
+    <span class="va">redot</span>.<span class="at">changed</span>(<span class="kw">this</span>)<span class="op">;</span> <span class="co">// notify to redot that array has changed.</span>
+<span class="op">}</span>
+
+<span class="co">// sorting descending</span>
+<span class="va">data</span>.<span class="at">sortDesc</span> <span class="op">=</span> <span class="kw">function</span>()
+<span class="op">{</span>
+    <span class="kw">this</span>.<span class="at">sort</span>(<span class="kw">function</span>(a<span class="op">,</span>b)<span class="op">{</span><span class="cf">return</span> <span class="va">b</span>.<span class="at">qtd</span><span class="op">-</span><span class="va">a</span>.<span class="at">qtd</span><span class="op">}</span>)<span class="op">;</span>
+    <span class="va">redot</span>.<span class="at">changed</span>(<span class="kw">this</span>)<span class="op">;</span> <span class="co">// notify to redot that array has changed.</span>
+<span class="op">}</span>
+
+<span class="co">// put data in its original position</span>
+<span class="va">data</span>.<span class="at">startPosition</span> <span class="op">=</span> <span class="kw">function</span>()
+<span class="op">{</span>
+    <span class="kw">this</span>.<span class="at">sort</span>(<span class="kw">function</span>(a<span class="op">,</span>b)<span class="op">{</span><span class="cf">return</span> <span class="va">a</span>.<span class="at">original</span><span class="op">-</span><span class="va">b</span>.<span class="at">original</span><span class="op">}</span>)<span class="op">;</span>
+    <span class="va">redot</span>.<span class="at">changed</span>(<span class="kw">this</span>)<span class="op">;</span> <span class="co">// notify to redot that array has changed.</span>
+<span class="op">}</span>
+
+<span class="co">// shuffle Array</span>
+<span class="va">data</span>.<span class="at">shuffle</span> <span class="op">=</span> <span class="kw">function</span>()
+<span class="op">{</span>
+    <span class="kw">var</span> j<span class="op">,</span> aux<span class="op">;</span>
+    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="kw">this</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">;</span> i <span class="op">-=</span> <span class="dv">1</span>) 
+    <span class="op">{</span>
+        j <span class="op">=</span> <span class="va">Math</span>.<span class="at">floor</span>(<span class="va">Math</span>.<span class="at">random</span>() <span class="op">*</span> i)<span class="op">;</span>
+        aux <span class="op">=</span> <span class="kw">this</span>[i <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span>
+        <span class="kw">this</span>[i <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> <span class="kw">this</span>[j]<span class="op">;</span>
+        <span class="kw">this</span>[j] <span class="op">=</span> aux<span class="op">;</span>
+    <span class="op">}</span>
+    <span class="va">redot</span>.<span class="at">changed</span>(<span class="kw">this</span>)<span class="op">;</span> <span class="co">// notify to redot that array has changed.</span>
+<span class="op">}</span>
+
+<span class="co">// Do the magic! Call BarChart template with data and append to #main div.</span>
+<span class="va">redot</span>.<span class="at">applyTemplate</span>(<span class="st">&quot;#main&quot;</span><span class="op">,</span> BarChart<span class="op">,</span> data)<span class="op">;</span>     </code></pre></td></tr></table></div>
+<script type="text/javascript" src="js/codepen.js"></script>
+<script type="text/javascript" src="../redot.js"></script>
+<script type="text/javascript" id="theScript">
+// Barchart DEMO 01
+// Ordinary javascript array. Generating random data.
+var data = [];
+for(var i=0; i<20; i++) // sample with 20 elements
+{
+    // generate itegers randomically between 10 and 100
+    var randomQtd = parseInt(Math.random()*91)+10;
+    // store new object in array with attributes "qtd" and "original",
+    // with original object position in the array.
+    data.push({qtd:randomQtd,original:i});
+}
+
+// BarChart Template
+function BarChart()
+{
+    this.width    = 500; // define width of client area
+    this.height   = 200; // define height of client area
+    this.barWidth = "{width/d.length}"; // reactive expression
+    
+    // in reactive expression we can use variables defined in "this" context,
+    // global variables, global functions and the implicits variables d, i and parent.
+    // d is a reference to the data object. i is the index of d object in 
+    // the collection. parent is the parent context. In this case parent is null
+    // because BarChart is the root of template.
+
+    // The HTML code bellow is a comment for javascript, but not for redot. 
+    // It is a document fragment that generates the underlied data visualization.
+
+    /**********************************************************************************
+    <div>
+        <svg width="{width+50}" height="{height+50}" style="border: 1px black solid;">
+            <g transform="translate(25 25)" style="text-anchor: middle;">
+                <include template="{Bar}" data="{d}" />
+            </g>
+        </svg>
+    </div>
+    <div>
+        <button onclick="{d.sortAsc()}">Sort Ascending</button>
+        <button onclick="{d.sortDesc()}">Sort Descending</button>
+        <button onclick="{d.startPosition()}">Start Position</button>
+        <button onclick="{d.shuffle()}">Shuffle</button>
+    </div>
+    ********************************************************************************/
+}
+
+// Bar Template
+function Bar()
+{    
+    this.color  = "skyblue"; // bar color referenced in fill attribute of rect
+    this.width  = "{parent.barWidth}"; // bar width is a reference to parent barWidth
+    this.height = "{2*d.qtd}"; // height of bars. qtd is a data attribute
+    this.x      = "{i*width}"; // x position of the bar.
+    this.y      = "{parent.height-height}"; // y position of the bar
+    
+    this.select = function(flag) // callback to onmouseover and onmouseout events
+    {
+        // hovering effect
+        this.color = flag ? "orange" : "skyblue";
+    }
+    
+    // Document template for each bar
+    /***********************************************************************************
+    <g class="bar" style="transform:translate({x}px,0);">
+        <rect 
+            onmouseover="{select(true)}" 
+            onmouseout="{select(false)}" 
+            x="1" 
+            y="{y}" 
+            height="{height}" 
+            width="{width-2}" 
+            fill="{color}"
+        />
+        <text x="{width/2}" y="{y-6}" dominant-baseline="middle">{d.qtd}</text> 
+    </g>
+    ***********************************************************************************/
+}
+
+// Attaching to data array sort and shuffle functions
+
+// sorting ascending
+data.sortAsc = function()
+{
+    this.sort(function(a,b){return a.qtd-b.qtd});
+    redot.changed(this); // notify to redot that array has changed.
+}
+
+// sorting descending
+data.sortDesc = function()
+{
+    this.sort(function(a,b){return b.qtd-a.qtd});
+    redot.changed(this); // notify to redot that array has changed.
+}
+
+// put data in its original position
+data.startPosition = function()
+{
+    this.sort(function(a,b){return a.original-b.original});
+    redot.changed(this); // notify to redot that array has changed.
+}
+
+// shuffle Array
+data.shuffle = function()
+{
+    var j, aux;
+    for (var i = this.length; i; i -= 1) 
+    {
+        j = Math.floor(Math.random() * i);
+        aux = this[i - 1];
+        this[i - 1] = this[j];
+        this[j] = aux;
+    }
+    redot.changed(this); // notify to redot that array has changed.
+}
+
+// Do the magic! Call BarChart template with data and append to #main div.
+redot.applyTemplate("#main", BarChart, data);     
+</script>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
