@@ -49,7 +49,7 @@ function indexPage {
 	          <a class="btn btn-lg btn-primary" href="https://github.com/renato-mauro/redot/zipball/master" role="button">Download Zip File</a>
 	        </p>
 	      </div>
-	' > ../index.html
+	' >> ../index.html
 
 	cat /tmp/examplesMainPage.html >> ../index.html
 
