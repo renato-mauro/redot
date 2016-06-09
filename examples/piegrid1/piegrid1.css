@@ -1,0 +1,24 @@
+text {
+  font-size: 10pt;
+  font-family: sans-serif;
+  text-anchor: middle;             
+}
+
+text.title {
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+text.subtitle
+{
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+path {
+  opacity: 0.5;
+}
+
+path.selected {
+  opacity: 1;
+}

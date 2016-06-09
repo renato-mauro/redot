@@ -6,11 +6,72 @@
   <meta name="generator" content="pandoc" />
   <title>piegrid1</title>
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <style type="text/css">
   td.lineNumbers {width:60px;}
   </style>
   <style id="theStyle">
+  text {
+    font-size: 10pt;
+    font-family: sans-serif;
+    text-anchor: middle;             
+  }
+  
+  text.title {
+    font-size: 12pt;
+    font-weight: bold;
+  }
+  
+  text.subtitle
+  {
+    font-size: 11pt;
+    font-weight: bold;
+  }
+  
+  path {
+    opacity: 0.5;
+  }
+  
+  path.selected {
+    opacity: 1;
+  }
   </style>
 </head>
 <body>
@@ -49,12 +110,372 @@
 		</nav>
 <div class="container">
 <h1 id="piegrid1-example">PieGrid1 Example</h1>
-<p>Click <a href="https://jsfiddle.net/renatomauro/hcL062mb/">here</a> or in the screenshot to play with this example in jsfiddler. Figure bellow is not alive.</p>
-<p><a href="https://jsfiddle.net/renatomauro/hcL062mb/"><img src="https://raw.githubusercontent.com/renato-mauro/redot/master/examples/piegrid1/PieGrid1.png" title="PieGrid1 Screenshoot" alt="PieGrid1 Screenshoot" /></a></p>
-<button onclick="jsfiddle('PieGrid1 Example','Click <a href="https://jsfiddle.net/renatomauro/hcL062mb/">here</a> or in the screenshot to play with this example in jsfiddler. Figure bellow is not alive.','')">Open in JSFiddle</button>
+<p>This example shows a regular grid with piecharts.</p>
+<button onclick="jsfiddle('PieGrid1 Example','This example shows a regular grid with piecharts.','')">
+Open in JSFiddle
+</button>
 <div id="main" style="margin:10px 0;">
 
 </div>
+<h2 id="css-piegrid1.css">CSS (piegrid1.css)</h2>
+<div class="sourceCode"><table class="sourceCode css numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="sourceCode"><pre><code class="sourceCode css">text <span class="kw">{</span>
+  <span class="kw">font-size:</span> <span class="dt">10pt</span><span class="kw">;</span>
+  <span class="kw">font-family:</span> <span class="dt">sans-serif</span><span class="kw">;</span>
+  <span class="kw">text-anchor:</span> <span class="dt">middle</span><span class="kw">;</span>             
+<span class="kw">}</span>
+
+text<span class="fl">.title</span> <span class="kw">{</span>
+  <span class="kw">font-size:</span> <span class="dt">12pt</span><span class="kw">;</span>
+  <span class="kw">font-weight:</span> <span class="dt">bold</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+text<span class="fl">.subtitle</span>
+<span class="kw">{</span>
+  <span class="kw">font-size:</span> <span class="dt">11pt</span><span class="kw">;</span>
+  <span class="kw">font-weight:</span> <span class="dt">bold</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+path <span class="kw">{</span>
+  <span class="kw">opacity:</span> <span class="dt">0.5</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+path<span class="fl">.selected</span> <span class="kw">{</span>
+  <span class="kw">opacity:</span> <span class="dt">1</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></td></tr></table></div>
+<h2 id="javascript">Javascript</h2>
+<div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> selectedItem <span class="op">=</span> <span class="op">{</span> <span class="dt">browserName</span><span class="op">:</span> <span class="st">&quot;&quot;</span> <span class="op">};</span>
+
+<span class="kw">function</span> <span class="at">Grid</span>()
+<span class="op">{</span>
+    <span class="kw">this</span>.<span class="at">width</span> <span class="op">=</span> <span class="dv">500</span><span class="op">;</span>
+    <span class="kw">this</span>.<span class="at">height</span> <span class="op">=</span> <span class="dv">500</span><span class="op">;</span>
+    
+    <span class="co">/**********************************************************************************</span>
+<span class="co">    &lt;div&gt;</span>
+<span class="co">        &lt;svg width=&quot;{width}&quot; height=&quot;{height+60}&quot; style=&quot;border: 1px black solid;&quot;&gt;</span>
+<span class="co">            &lt;g&gt;</span>
+<span class="co">                &lt;text class=&quot;title&quot; x=&quot;{width/2}&quot; y=&quot;25&quot;&gt;Web Browser Usage From January 2015 to April 2016&lt;/text&gt;</span>
+<span class="co">                &lt;text class=&quot;subtitle&quot; x=&quot;{width/2}&quot; y=&quot;50&quot;&gt;{selectedItem.browserName}&lt;/text&gt;</span>
+<span class="co">                &lt;/g&gt;</span>
+<span class="co">            &lt;g transform=&quot;translate(0 60)&quot;&gt;</span>
+<span class="co">                &lt;include template=&quot;{GridRows}&quot; data=&quot;{d}&quot; /&gt;</span>
+<span class="co">            &lt;/g&gt;</span>
+<span class="co">        &lt;/svg&gt;</span>
+<span class="co">    &lt;/div&gt;</span>
+<span class="co">    **********************************************************************************/</span>
+<span class="op">}</span>
+
+<span class="kw">function</span> <span class="at">GridRows</span>()
+<span class="op">{</span>
+    <span class="kw">this</span>.<span class="at">rowHeight</span> <span class="op">=</span> <span class="st">&quot;{parent.height/parent.d.length}&quot;</span><span class="op">;</span>
+    <span class="kw">this</span>.<span class="at">colWidth</span> <span class="op">=</span> <span class="st">&quot;{parent.width/d.length}&quot;</span><span class="op">;</span>
+
+    <span class="co">/**********************************************************************************</span>
+<span class="co">    &lt;g transform=&quot;translate(0 {rowHeight*i})&quot;&gt;</span>
+<span class="co">        &lt;include template=&quot;{PieChart}&quot; data=&quot;{d}&quot; /&gt;</span>
+<span class="co">    &lt;/g&gt;</span>
+<span class="co">    **********************************************************************************/</span>
+<span class="op">}</span>
+
+<span class="co">// PieChart Template</span>
+<span class="kw">function</span> <span class="at">PieChart</span>()
+<span class="op">{</span>
+    <span class="kw">this</span>.<span class="at">width</span>    <span class="op">=</span> <span class="st">&quot;{parent.colWidth}&quot;</span><span class="op">;</span>
+    <span class="kw">this</span>.<span class="at">height</span>   <span class="op">=</span> <span class="st">&quot;{parent.rowHeight}&quot;</span><span class="op">;</span>
+    <span class="kw">this</span>.<span class="at">radius</span>   <span class="op">=</span> <span class="st">&quot;{width*0.30}&quot;</span><span class="op">;</span>
+    <span class="kw">this</span>.<span class="at">value</span>    <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>
+
+    <span class="co">/**********************************************************************************</span>
+<span class="co">    &lt;g transform=&quot;translate({width*i} 0)&quot;&gt;</span>
+<span class="co">        &lt;text x=&quot;{width/2}&quot; y=&quot;14&quot;&gt;</span>
+<span class="co">            {d.Date}</span>
+<span class="co">        &lt;/text&gt;</span>
+<span class="co">        &lt;g transform=&quot;translate({width/2} {height/2})&quot;&gt;</span>
+<span class="co">            &lt;include template=&quot;{PieSlice}&quot; data=&quot;{d.elements}&quot; /&gt;</span>
+<span class="co">        &lt;/g&gt;</span>
+<span class="co">        &lt;g transform=&quot;translate({width/2} {height-10})&quot;&gt;</span>
+<span class="co">            &lt;text&gt;</span>
+<span class="co">                {selectedItem.browserName == &#39;&#39; ? &#39;&#39; : redot.format.percent(value)}</span>
+<span class="co">            &lt;/text&gt;</span>
+<span class="co">        &lt;/g&gt;</span>
+<span class="co">    &lt;/g&gt;</span>
+<span class="co">    ********************************************************************************/</span>
+<span class="op">}</span>
+
+<span class="kw">function</span> <span class="at">color</span>(browserName)
+<span class="op">{</span>
+    <span class="cf">switch</span>(browserName)
+    <span class="op">{</span>
+        <span class="cf">case</span> <span class="st">&quot;Internet Explorer&quot;</span><span class="op">:</span> <span class="cf">return</span> <span class="st">&quot;#D95B43&quot;</span><span class="op">;</span>
+        <span class="cf">case</span> <span class="st">&quot;Firefox&quot;</span><span class="op">:</span> <span class="cf">return</span> <span class="st">&quot;#C02942&quot;</span><span class="op">;</span>
+        <span class="cf">case</span> <span class="st">&quot;Google Chrome&quot;</span><span class="op">:</span> <span class="cf">return</span> <span class="st">&quot;#ECD078&quot;</span><span class="op">;</span>
+        <span class="cf">case</span> <span class="st">&quot;Safari&quot;</span><span class="op">:</span> <span class="cf">return</span> <span class="st">&quot;#53777A&quot;</span><span class="op">;</span>
+        <span class="cf">case</span> <span class="st">&quot;Opera&quot;</span><span class="op">:</span> <span class="cf">return</span> <span class="st">&quot;#542437&quot;</span><span class="op">;</span>
+        <span class="dt">default</span><span class="op">:</span> <span class="cf">return</span> <span class="st">&quot;#c0c0c0&quot;</span><span class="op">;</span>
+    <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="co">// PieSlice Template</span>
+<span class="kw">function</span> <span class="at">PieSlice</span>()
+<span class="op">{</span>
+    <span class="kw">this</span>.<span class="at">pieRange</span> <span class="op">=</span> <span class="va">redot</span>.<span class="at">stack</span>(<span class="st">&quot;{d.value}&quot;</span>)<span class="op">;</span>
+    <span class="kw">this</span>.<span class="at">sliceClass</span> <span class="op">=</span> <span class="st">&quot;{selectedItem.browserName == d.name ? redot.last(parent.value=d.value, &#39;selected&#39;) : &#39;notSelected&#39;}&quot;</span><span class="op">;</span>
+
+    <span class="kw">this</span>.<span class="at">sel</span> <span class="op">=</span> <span class="kw">function</span>(d)
+    <span class="op">{</span>
+        <span class="cf">if</span>(<span class="va">selectedItem</span>.<span class="at">browserName</span> <span class="op">==</span> <span class="va">d</span>.<span class="at">name</span>)
+        <span class="op">{</span>
+            <span class="va">selectedItem</span>.<span class="at">browserName</span> <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span>
+        <span class="op">}</span>
+        <span class="cf">else</span>
+        <span class="op">{</span>
+            <span class="va">selectedItem</span>.<span class="at">browserName</span> <span class="op">=</span> <span class="va">d</span>.<span class="at">name</span><span class="op">;</span>
+        <span class="op">}</span>
+    <span class="op">}</span>
+
+    <span class="co">/*****************************************************</span>
+<span class="co">    &lt;path </span>
+<span class="co">        class=&quot;{sliceClass}&quot; </span>
+<span class="co">        onclick=&quot;{sel(d)}&quot; </span>
+<span class="co">        d=&quot;{redot.path.pieSlice(parent.radius,pieRange)}&quot; </span>
+<span class="co">        stroke=&quot;black&quot; </span>
+<span class="co">        fill=&quot;{color(d.name)}&quot;</span>
+<span class="co">    /&gt;</span>
+<span class="co">    ******************************************************/</span>
+<span class="op">}</span>
+
+<span class="va">redot</span>.<span class="at">applyTemplate</span>(<span class="st">&quot;#main&quot;</span><span class="op">,</span> Grid<span class="op">,</span> <span class="va">redot</span>.<span class="at">json</span>(<span class="st">&quot;http://renato-mauro.github.io/redot/data/BrowserUsageGrid4Cols.json&quot;</span>))<span class="op">;</span></code></pre></td></tr></table></div>
+<script type="text/javascript" src="../../redot.js"></script>
+<script type="text/javascript" id="theScript">
+var selectedItem = { browserName: "" };
+
+function Grid()
+{
+    this.width = 500;
+    this.height = 500;
+    
+    /**********************************************************************************
+    <div>
+        <svg width="{width}" height="{height+60}" style="border: 1px black solid;">
+            <g>
+                <text class="title" x="{width/2}" y="25">Web Browser Usage From January 2015 to April 2016</text>
+                <text class="subtitle" x="{width/2}" y="50">{selectedItem.browserName}</text>
+                </g>
+            <g transform="translate(0 60)">
+                <include template="{GridRows}" data="{d}" />
+            </g>
+        </svg>
+    </div>
+    **********************************************************************************/
+}
+
+function GridRows()
+{
+    this.rowHeight = "{parent.height/parent.d.length}";
+    this.colWidth = "{parent.width/d.length}";
+
+    /**********************************************************************************
+    <g transform="translate(0 {rowHeight*i})">
+        <include template="{PieChart}" data="{d}" />
+    </g>
+    **********************************************************************************/
+}
+
+// PieChart Template
+function PieChart()
+{
+    this.width    = "{parent.colWidth}";
+    this.height   = "{parent.rowHeight}";
+    this.radius   = "{width*0.30}";
+    this.value    = 0;
+
+    /**********************************************************************************
+    <g transform="translate({width*i} 0)">
+        <text x="{width/2}" y="14">
+            {d.Date}
+        </text>
+        <g transform="translate({width/2} {height/2})">
+            <include template="{PieSlice}" data="{d.elements}" />
+        </g>
+        <g transform="translate({width/2} {height-10})">
+            <text>
+                {selectedItem.browserName == '' ? '' : redot.format.percent(value)}
+            </text>
+        </g>
+    </g>
+    ********************************************************************************/
+}
+
+function color(browserName)
+{
+    switch(browserName)
+    {
+        case "Internet Explorer": return "#D95B43";
+        case "Firefox": return "#C02942";
+        case "Google Chrome": return "#ECD078";
+        case "Safari": return "#53777A";
+        case "Opera": return "#542437";
+        default: return "#c0c0c0";
+    }
+}
+
+// PieSlice Template
+function PieSlice()
+{
+    this.pieRange = redot.stack("{d.value}");
+    this.sliceClass = "{selectedItem.browserName == d.name ? redot.last(parent.value=d.value, 'selected') : 'notSelected'}";
+
+    this.sel = function(d)
+    {
+        if(selectedItem.browserName == d.name)
+        {
+            selectedItem.browserName = "";
+        }
+        else
+        {
+            selectedItem.browserName = d.name;
+        }
+    }
+
+    /*****************************************************
+    <path 
+        class="{sliceClass}" 
+        onclick="{sel(d)}" 
+        d="{redot.path.pieSlice(parent.radius,pieRange)}" 
+        stroke="black" 
+        fill="{color(d.name)}"
+    />
+    ******************************************************/
+}
+
+redot.applyTemplate("#main", Grid, redot.json("http://renato-mauro.github.io/redot/data/BrowserUsageGrid4Cols.json"));
+</script>
 </div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
