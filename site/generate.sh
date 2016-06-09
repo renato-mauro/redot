@@ -9,11 +9,11 @@ function exampleMainPage {
 	echo "
         <div class=\"col-md-6\">
           <div class=\"thumbnail\">
-            <img src=\"site/thumbnails/$1.png\" alt=\"$2\">
             <div class=\"caption\">
               <h3>$2</h3>
               <p>$3</p>
-              <p><a href=\"site/examples/$1/$1.html\" class=\"btn btn-primary\" role=\"button\">Open Example</a></p>
+              <img src=\"site/thumbnails/$1.png\" alt=\"$2\">
+              <p><a href=\"site/examples/$1.html\" class=\"btn btn-primary\" role=\"button\">Open Example</a></p>
             </div>
           </div>
         </div>
