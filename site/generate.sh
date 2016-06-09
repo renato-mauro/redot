@@ -62,7 +62,6 @@ function indexPage {
 	' >> ../index.html	
 }
 
-
 function navBarTemplate {
 	echo '
 		<nav class="navbar navbar-default">
@@ -91,7 +90,7 @@ function navBarTemplate {
 			exampleName=`basename $examplePath`
 			if [ -f $examplePath/README.md ];then
 				viewTitle=`pandoc $examplePath/README.md | sed -n -e '1!d;s/[^>]*>\([^<]*\)<.*/\1/p'`
-				echo "<li><a href=\"$exampleName.html\">$viewTitle</a></li>" >> /tmp/begin.html
+				echo "<li><a href=\"http://renato-mauro.github.io/redot/site/examples/$exampleName.html\">$viewTitle</a></li>" >> /tmp/begin.html
 			fi
 		fi
 	done
