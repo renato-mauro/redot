@@ -181,7 +181,7 @@ for examplePath in $EXAMPLES_FOLDER/*; do
 			cat $examplePath/README.md >> /tmp/page.md
 			viewTitle=`pandoc $examplePath/README.md | sed -n -e '1!d;s/[^>]*>\([^<]*\)<.*/\1/p'`
 			viewDescription=`pandoc $examplePath/README.md | sed -n -e '2!d;s/[^>]*>\([^<]*\)<.*/\1/p'`
-			exampleMainPage $exampleName $viewTitle $viewDescription
+			exampleMainPage "$exampleName" "$viewTitle" "$viewDescription"
 		fi
 		echo "<button onclick=\"jsfiddle('$viewTitle','$viewDescription','$EXTERNAL_JS')\">Open in JSFiddle</button>" >> /tmp/page.md
 		echo "<div id=\"main\" style=\"margin:10px 0;\"></div>" >> /tmp/page.md
