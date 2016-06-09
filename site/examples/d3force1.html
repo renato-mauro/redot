@@ -59,38 +59,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   }</style>
 </head>
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">REDOT</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Tutorial</a></li>
-        <li><a href="#">Download</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-          <li><a href="barchart1.html">BarChart1 Example</a></li><li><a href="d3force1.html">D3 Force 1 Layout Example</a></li><li><a href="filter.html">Filter Example</a></li><li><a href="piechart1.html">PieChart1 Example</a></li><li><a href="piegrid1.html">PieGrid1 Example</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container-fluid -->
-</nav>
+
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">REDOT</a>
+		    </div>
+		    <div id="navbar" class="navbar-collapse collapse">
+		      <ul class="nav navbar-nav">
+		        <li><a href="#">Home</a></li>
+		        <li><a href="#">Tutorial</a></li>
+		        <li><a href="#">Download</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+	
+<li><a href="barchart1.html">BarChart1 Example</a></li>
+<li><a href="d3force1.html">D3 Force 1 Layout Example</a></li>
+<li><a href="filter.html">Filter Example</a></li>
+<li><a href="piechart1.html">PieChart1 Example</a></li>
+<li><a href="piegrid1.html">PieGrid1 Example</a></li>
+
+		          </ul>
+		        </li>
+		      </ul>
+		    </div><!--/.nav-collapse -->
+		  </div><!--/.container-fluid -->
+		</nav>
 <script type="text/javascript" src="../../examples/d3force1/d3.min.js"></script>
 <div class="container">
 <h1 id="d3-force-1-layout-example">D3 Force 1 Layout Example</h1>
 <p>Implementation of D3 Force Layout.</p>
-<script type="text/javascript" src="../js/codepen.js"></script>
-<script type="text/javascript">codePen('D3 Force 1 Layout Example','Implementation of D3 Force Layout.',';http://renato-mauro.github.io/redot/site/../examples/d3force1/d3.min.js')</script>
+<button onclick="jsfiddle('D3 Force 1 Layout Example','Implementation of D3 Force Layout.',',http://renato-mauro.github.io/redot/site/../examples/d3force1/d3.min.js')">
+Open in JSFiddle
+</button>
 <div id="main" style="margin:10px 0;">
 
 </div>
@@ -1331,7 +1339,52 @@ redot.applyTemplate('#main', Miserables, data);
 
 </script>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script>
+			var firstClick = true;
+			function jsfiddle(title,description,extrajs)
+			{
+				var form = document.getElementById("fiddleForm");
+				if(firstClick)
+				{
+					form.title.value = title;
+					form.description.value = description;
+					form.html.value = "<div id=\"main\"></div>";
+					var script = document.getElementById("theScript");
+					if(script)
+					{
+						form.js.value = script.textContent.trim();
+					}
+
+					var style = document.getElementById("theStyle");
+					if(style)
+					{
+						form.css.value = style.textContent.trim();
+					}
+					if(extrajs)
+					{
+						firstClick = false;
+						form.resources.value += extrajs;
+					}
+				}
+				form.submit();
+			}
+		</script>
+		<form id="fiddleForm" method="POST" action="http://jsfiddle.net/api/post/library/pure/" target="_bkank">
+			<input type="hidden" name="html" value=""/>
+			<input type="hidden" name="js" value=""/>
+			<input type="hidden" name="css" value=""/>
+			<input type="hidden" name="panel_html" value="0"/>
+			<input type="hidden" name="panel_js" value="0"/>
+			<input type="hidden" name="panel_css" value="0"/>
+			<input type="hidden" name="resources" value="http://renato-mauro.github.io/redot/redot.js"/>
+			<input type="hidden" name="title" value=""/>
+			<input type="hidden" name="description" value=""/>
+			<input type="hidden" name="normalize_css" value="no"/>
+			<input type="hidden" name="dtd" value="html 4"/>
+			<input type="hidden" name="wrap" value="b"/>
+		</form>
 </body>
 </html>
