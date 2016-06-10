@@ -43,7 +43,8 @@ function indexPage {
 	    <div class="container">
 	      <div class="jumbotron">
 	        <h1>REDOT</h1>
-	        <p>Redot stands for <b>Reactive Document Templates</b>. It is a javascript API (Application Interface) and an embedded DSL (domain specific language) that introduces reactive capabilities to document generation driven by data. The arrangement of generated DOM fragments reflects the data structure. Modification in underlying data automatically changes view layer. Redot manages automatically dependency between data objects expressions, and DOM fragments.</p>
+	        <p>
+	        Redot stands for <b>Reactive Document Templates</b>. It is a javascript API (Application Interface) and an embedded DSL (domain specific language) that introduces reactive capabilities to document generation driven by data. The arrangement of generated DOM fragments reflects the data structure. Modifications to underlying data automatically change view layer. Redot automatically manages the dependency between data object expressions and DOM fragments.
 	        <p>
 	          <a class="btn btn-lg btn-primary" href="https://github.com/renato-mauro/redot" role="button">View Project in Github</a>
 	          <a class="btn btn-lg btn-primary" href="https://github.com/renato-mauro/redot/zipball/master" role="button">Download Zip File</a>

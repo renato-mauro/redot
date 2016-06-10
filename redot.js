@@ -506,7 +506,6 @@ function processEnterQueue()
     enterQueue = [];        
 }
 
-
 var waitingDocumentComplete = [];
 
 function enqueueApplyTemplate(parent, templateFunction, data)
@@ -1086,7 +1085,7 @@ redot.json = function(fileName)
                         obj[agregateName] = range = { };
                     }
                     range.begin = currentValue;
-                    currentValue += fexpression.apply(obj);
+                    currentValue += fexpression.apply(obj,[obj,i]);
                     range.end = currentValue;
                 }
             }
@@ -1138,7 +1137,7 @@ redot.json = function(fileName)
                 for(var i=0; i<map.length; i++)
                 {
                     var obj = map.item(i);
-                    sum += fexpression.apply(obj);
+                    sum += fexpression.apply(obj,[obj,i]);
                 }
                 var currentValue = 0;
                 for(var i=0; i<map.length; i++)
@@ -1150,7 +1149,7 @@ redot.json = function(fileName)
                         obj[agregateName] = range = { };
                     }
                     range.begin = currentValue/sum;
-                    currentValue += fexpression.apply(obj);
+                    currentValue += fexpression.apply(obj,[obj,i]);
                     range.end = currentValue/sum;
                 }
             }
