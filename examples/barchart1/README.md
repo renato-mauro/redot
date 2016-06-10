@@ -1,4 +1,4 @@
-# BarChart1 Example
+# Bar chart
 
-Simple Bar Chart demonstration with array sorting. Includes CSS transitions to show arrays manipulation reflecting directly in data visualization.
+Simple bar chart demonstration with array sorting. Includes CSS transitions to show data visualization directly reflecting array manipulation.
 

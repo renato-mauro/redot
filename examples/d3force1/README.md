@@ -1,5 +1,5 @@
-# D3 Force 1 Layout Example
+# D3 layouts
 
-Application of D3 Force Layout, with reactivity capabilities. The state-of-art D3 Layouts are compatible with REDOT templates.
+Application of D3´s Force Layout, with reactivity capabilities. D3´s state-of-art layouts are compatible with REDOT templates.
 
 

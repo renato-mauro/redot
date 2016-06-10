@@ -1,5 +1,5 @@
-# PieChart1 Example
+# Pie chart 
 
-PieChart showing web navigador usage statistics. Demonstration of stack reactive operator.
+Pie chart showing web browser usage statistics. Demonstration of the `stack` reactive operator.
 
 

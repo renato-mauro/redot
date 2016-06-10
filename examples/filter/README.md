@@ -1,5 +1,5 @@
-# Filter Example
+# Array filtering
 
-This example demonstrate reactive filter array, using three barcharts with shared objects. 
+This example demonstrates reactive filtering of arrays, using three barcharts with shared objects. 
 
 

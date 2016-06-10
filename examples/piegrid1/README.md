@@ -1,4 +1,4 @@
-# PieGrid1 Example
+# Pie chart grid
 
-This example shows a regular grid with piecharts.
+Integrates several pie charts within a regular grid layout.
 
